@@ -1,0 +1,12 @@
+{
+  "name": "chatgpt-server",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "ws": "^8.11.0"
+  }
+}
