@@ -26,8 +26,9 @@ server.on('connection', (socket, req) => {
   }
 
   // Ensure two connections are connected at most
-  if (connections.length >= 2) {
+  if (Object.keys(connections).length >= 2) {
     console.log('Too many connections', connections.length)
+    socket.send('SERVER_BUSY')
     socket.terminate()
     return
   }
@@ -35,6 +36,7 @@ server.on('connection', (socket, req) => {
   // Ensure username is unique
   if (connections[username]) {
     console.log('Username already exists', username)
+    socket.send('USERNAME_BUSY')
     socket.terminate()
     return
   }
